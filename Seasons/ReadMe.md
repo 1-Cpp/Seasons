@@ -1,67 +1,81 @@
+# Seasons Project
 Status 20150727 mbr
 
 Tree Structure 
 
 Source trees:
+
 /src
+
 /include
+
 /res
+
 /$solutionname$ (=Seasons)
 
 Intermediate:
+
 /build
 
 Output:
+
 $configurationname$ (Debug/Release etc)
 
-Seasons
+
+## Seasons
 C++ Libraries and some # tools which use them
 
-# Cold
+## Cold
 classes for a special purpose
 
-  # February
+###  # February
 
-  # December
+###  # December
   
-  # January
+###   # January
   for Compilers + Interpreters
   
-  # November
+###   # November
   
 
 
-# Moderate
-  # October
+## Moderate
+###  # October
   all base classes
+
+###    # March
   
-  # March
-  
-  # April
+###    # April
   graphical
 
-  # September
+###    # September
   file structures
 
-# Warm
+
+## Warm
   windows specific
   
-  # July
+###    # July
   Windows specific fuctions
   
-  # June
+###    # June
   Graphical functions - windows specific
   
-  # May
-  
-# Rainy  
-  
-# Dry
+###    # May
 
-# Seasoning
+  
+  
+## Rainy  
+  
+  
+## Dry
+
+
+## Seasoning
 DLL encapsulating library functions and making some features avalailabe for managed code
 
-# Janus
+
+## Janus
   - Generic Compiler
     - Binary File Structure Description Compiler
     - BNF-Compiler

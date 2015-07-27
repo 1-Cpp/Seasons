@@ -13,7 +13,10 @@ public:
 	virtual ~Data();
 	byte byteAt(unsigned int position) const ;
 	byte * pointer(unsigned int offset) const;
+	void setByteAt(unsigned int position, byte value);
+	void setBytesAt(unsigned int position, byte value[], unsigned int count);
 	unsigned int size() const;
+	void resize(int newSize);
 	void dump() const;
 };
 

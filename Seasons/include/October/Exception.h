@@ -42,6 +42,17 @@ public:
 	{
 	}
 };
+class EOFException : public IOException {
+public:
+	EOFException()
+	{
+	}
+
+	virtual ~EOFException()
+	{
+	}
+};
+
 class UnsupportedOperationException : public Exception {
 public:
 	UnsupportedOperationException()

@@ -29,9 +29,14 @@ public:
 	unsigned int size() const;
 
 	void setFormatBufferSize(unsigned int size);
+	void trim();
+	void ltrim();
+	void rtrim();
 	String operator=(const String&toAssign);
 	String operator+=(const String&toAdd);
 	String operator+=(const wchar_t&toAdd);
-
+	bool operator==(const String&toCompare) const;
+	bool isEmpty();
 };
 String operator+(const String & s1, const String& s2);
+//bool operator==(const String & s1, const String& s2);

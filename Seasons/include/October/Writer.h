@@ -10,6 +10,6 @@ public:
 	virtual ~Writer()
 	{
 	}
-	virtual void write(int element) = 0;
+	virtual int write(int element) = 0;
 };
 

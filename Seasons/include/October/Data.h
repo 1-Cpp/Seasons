@@ -1,5 +1,8 @@
 #pragma once
 
+namespace Seasons
+{
+
 typedef unsigned char byte;
 class Data
 {
@@ -20,3 +23,4 @@ public:
 	void dump() const;
 };
 
+}

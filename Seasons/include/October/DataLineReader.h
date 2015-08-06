@@ -1,6 +1,9 @@
 #pragma once
 #include "LineReader.h"
 
+namespace Seasons
+{
+
 class Data;
 class DataLineReader :
 	public LineReader
@@ -37,3 +40,4 @@ public:
 };
 
 
+}

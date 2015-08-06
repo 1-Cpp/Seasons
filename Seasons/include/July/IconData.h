@@ -1,3 +1,7 @@
+#pragma once
+
+namespace Seasons
+{
 
 class IconData
 {
@@ -11,3 +15,5 @@ public:
 	IconData();
 	virtual ~IconData();
 };
+
+}

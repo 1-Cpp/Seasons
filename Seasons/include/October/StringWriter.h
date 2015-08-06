@@ -1,5 +1,9 @@
 #pragma once
 #include "CharWriter.h"
+
+namespace Seasons
+{
+
 class String;
 class StringWriter :
 	public CharWriter
@@ -14,3 +18,4 @@ public:
 	virtual void write(const String&str);
 };
 
+}

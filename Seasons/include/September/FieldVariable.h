@@ -1,5 +1,10 @@
 #pragma once
 #include "October/String.h"
+
+
+namespace Seasons
+{
+
 class FieldObject;
 
 class FieldVariable
@@ -13,3 +18,4 @@ public:
 	virtual ~FieldVariable();
 };
 
+}

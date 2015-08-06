@@ -1,4 +1,9 @@
 #pragma once
+
+
+namespace Seasons
+{
+
 class Writer
 {
 public:
@@ -13,3 +18,4 @@ public:
 	virtual int write(int element) = 0;
 };
 
+}

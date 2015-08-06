@@ -3,6 +3,8 @@
 #include "October/File.h"
 #include "October/Data.h"
 
+namespace Seasons
+{
 
 int File::readAll(Data & data)
 {
@@ -34,4 +36,6 @@ File::File(const File & file)
 
 File::~File()
 {
+}
+
 }

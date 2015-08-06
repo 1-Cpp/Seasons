@@ -1,6 +1,9 @@
 #pragma once
 #include "ByteReader.h"
 
+namespace Seasons
+{
+
 class Data;
 class DataReader :
 	public ByteReader
@@ -36,3 +39,4 @@ public:
 };
 
 
+}

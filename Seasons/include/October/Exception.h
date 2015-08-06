@@ -1,67 +1,73 @@
 #pragma once
-class Exception
+
+
+namespace Seasons
 {
-public:
+	class Exception
+	{
+	public:
 
-	Exception()
-	{
-	}
+		Exception()
+		{
+		}
 
-	virtual ~Exception()
-	{
-	}
-};
-class OutOfMemoryException : public Exception {
-public:
-	OutOfMemoryException()
-	{
-	}
+		virtual ~Exception()
+		{
+		}
+	};
+	class OutOfMemoryException : public Exception {
+	public:
+		OutOfMemoryException()
+		{
+		}
 
-	virtual ~OutOfMemoryException()
-	{
-	}
-};
-class OutOfBoundsException : public Exception {
-public:
-	OutOfBoundsException()
-	{
-	}
+		virtual ~OutOfMemoryException()
+		{
+		}
+	};
+	class OutOfBoundsException : public Exception {
+	public:
+		OutOfBoundsException()
+		{
+		}
 
-	virtual ~OutOfBoundsException()
-	{
-	}
-};
+		virtual ~OutOfBoundsException()
+		{
+		}
+	};
 
-class IOException : public Exception {
-public:
-	IOException()
-	{
-	}
+	class IOException : public Exception {
+	public:
+		IOException()
+		{
+		}
 
-	virtual ~IOException()
-	{
-	}
-};
-class EOFException : public IOException {
-public:
-	EOFException()
-	{
-	}
+		virtual ~IOException()
+		{
+		}
+	};
+	class EOFException : public IOException {
+	public:
+		EOFException()
+		{
+		}
 
-	virtual ~EOFException()
-	{
-	}
-};
+		virtual ~EOFException()
+		{
+		}
+	};
 
-class UnsupportedOperationException : public Exception {
-public:
-	UnsupportedOperationException()
-	{
-	}
+	class UnsupportedOperationException : public Exception {
+	public:
+		UnsupportedOperationException()
+		{
+		}
 
-	virtual ~UnsupportedOperationException()
-	{
-	}
-};
+		virtual ~UnsupportedOperationException()
+		{
+		}
+	};
 
 
+
+}

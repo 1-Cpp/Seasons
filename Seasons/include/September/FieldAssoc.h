@@ -3,6 +3,9 @@
 #include "September/FieldObject.h"
 #include "September/Field.h"
 
+namespace Seasons
+{
+
 class FieldAssoc
 {
 protected:
@@ -13,3 +16,4 @@ public:
 	virtual ~FieldAssoc();
 };
 
+}

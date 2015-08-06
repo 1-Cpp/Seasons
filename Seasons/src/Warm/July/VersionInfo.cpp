@@ -5,6 +5,9 @@
 #include "October/DataReader.h"
 #include "October/String.h"
 
+namespace Seasons
+{
+
 VersionInfo::VersionInfo()
 {
 }
@@ -130,5 +133,7 @@ void VersionInfo::dump() const {
 	for (VersionInfo * p : children) {
 		p->dump();
 	}
+
+}
 
 }

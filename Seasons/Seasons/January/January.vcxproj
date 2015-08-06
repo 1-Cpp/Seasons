@@ -157,9 +157,11 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\Cold\January\Tokenizer.cpp" />
     <ClCompile Include="January.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\January\Tokenizer.h" />
     <ClInclude Include="January.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

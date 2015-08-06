@@ -3,6 +3,10 @@
 #include "October/Exception.h"
 #include <string>
 
+
+namespace Seasons
+{
+
 void printHex(const void*p, int size);
 Data::Data()
 {
@@ -121,3 +125,4 @@ void printHex(const void*p, int size) {
 	wprintf(L"%s\n", text.c_str());
 }
 
+}

@@ -1,6 +1,8 @@
 #include "October/DataWriter.h"
 #include "October/Data.h"
 
+namespace Seasons
+{
 
 DataWriter::DataWriter(Data&outData):data(outData)
 {
@@ -32,4 +34,6 @@ int DataWriter::write(unsigned char buffer[], unsigned long offset, unsigned lon
 void DataWriter::flush() {
 	
 	data.resize(fileEnd);
+}
+
 }

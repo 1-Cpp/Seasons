@@ -1,5 +1,9 @@
 #pragma once
 #include "Reader.h"
+
+namespace Seasons
+{
+
 class CharReader :
 	public Reader
 {
@@ -17,3 +21,4 @@ public:
 
 };
 
+}

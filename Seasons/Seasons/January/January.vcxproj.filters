@@ -21,9 +21,15 @@
     <ClCompile Include="January.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Cold\January\Tokenizer.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="January.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\January\Tokenizer.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

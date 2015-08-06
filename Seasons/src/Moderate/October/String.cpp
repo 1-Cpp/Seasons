@@ -1,6 +1,9 @@
 
 #include "October/String.h"
 
+namespace Seasons
+{
+
 class StringImpl {
 protected:
 	wchar_t * buffer = nullptr;
@@ -180,7 +183,7 @@ String::operator std::wstring() const{
 	return theImpl->wstring();
 }
 String::operator const wchar_t*() const {
-	return theImpl->getBuffer();
+	return theImpl != nullptr ? theImpl->getBuffer() : nullptr;
 }
 
 wchar_t String::charAt(unsigned int offset) const
@@ -229,6 +232,14 @@ bool String::isEmpty() {
 bool String::operator==(const String&toCompare) const {
 	return theImpl->compare(toCompare.theImpl) == 0;
 }
+bool String::operator<(const String&toCompare) const {
+	return theImpl->compare(toCompare.theImpl) < 0;
+}
 bool operator==(const String & s1, const String& s2) {
 	return s1.operator==(s2);
+}
+bool operator<(const String & s1, const String& s2) {
+	return s1.operator<(s2);
+}
+
 }

@@ -3,6 +3,9 @@
 #include "October/Reader.h"
 #include "October/Writer.h"
 
+namespace Seasons
+{
+
 int FieldInt::read(Reader & reader, const Field & field)
 {
 	return 0;
@@ -112,4 +115,6 @@ int FieldChar::read(Reader & reader, const Field & field)
 int FieldChar::write(Writer & writer, const Field & field)
 {
 	return 0;
+}
+
 }

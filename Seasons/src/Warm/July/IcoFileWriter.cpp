@@ -2,6 +2,9 @@
 
 #include "July/IconData.h"
 
+namespace Seasons
+{
+
 IcoFileWriter::IcoFileWriter()
 {
 }
@@ -68,4 +71,6 @@ int IcoFileWriter::writeDirectory(int count, const IconData icons[])
 		ret += iRet;
 	}
 	return ret;
+}
+
 }

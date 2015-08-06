@@ -1,4 +1,9 @@
 #pragma once
+
+
+namespace Seasons
+{
+
 class Reader
 {
 public:
@@ -35,3 +40,4 @@ public:
 
 };
 
+}

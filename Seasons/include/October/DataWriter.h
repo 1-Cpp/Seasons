@@ -1,5 +1,9 @@
 #pragma once
 #include "October/ByteWriter.h"
+
+namespace Seasons
+{
+
 class Data;
 class DataWriter :
 	public ByteWriter
@@ -16,3 +20,4 @@ public:
 	virtual void flush();
 };
 
+}

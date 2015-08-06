@@ -1,6 +1,8 @@
 #include "October/StringReader.h"
 #include "October/String.h"
 
+namespace Seasons
+{
 
 StringReader::StringReader(const String& str) : buffer(str)
 {
@@ -62,4 +64,6 @@ long StringReader::read(wchar_t buffer[], unsigned long offset, unsigned long co
 	}
 	wmemcpy(buffer, (wchar_t*)buffer, copy);
 	return copy;
+}
+
 }

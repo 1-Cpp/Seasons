@@ -2,6 +2,9 @@
 #include "October/String.h"
 #include "September/FieldObject.h"
 
+namespace Seasons
+{
+
 class Field : public FieldObject {
 protected:
 	String name;
@@ -15,3 +18,4 @@ public:
 	virtual int write(Writer&writer, const Field&field);
 };
 
+}

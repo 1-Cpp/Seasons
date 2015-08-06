@@ -1,6 +1,9 @@
 #pragma once
 #include "Writer.h"
 
+namespace Seasons
+{
+
 class ByteWriter :
 	public Writer
 {
@@ -12,3 +15,4 @@ public:
 	virtual void flush() = 0;
 };
 
+}

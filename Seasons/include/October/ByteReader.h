@@ -1,5 +1,9 @@
 #pragma once
 #include "Reader.h"
+
+namespace Seasons
+{
+
 class ByteReader : public Reader
 {
 public:
@@ -15,3 +19,4 @@ public:
 	virtual unsigned int read(unsigned char buffer[], unsigned long offset, unsigned long count) = 0;
 };
 
+}

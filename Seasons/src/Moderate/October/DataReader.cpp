@@ -3,6 +3,9 @@
 #include "October/Exception.h"
 #include <memory.h>
 
+namespace Seasons
+{
+
 DataReader::DataReader(const Data& str) : buffer(str)
 {
 
@@ -71,4 +74,6 @@ unsigned int DataReader::read(unsigned char buffer[], unsigned long offset, unsi
 	memcpy(buffer, (const wchar_t*)this->buffer.pointer(position), copy);
 	position += copy;
 	return copy;
+}
+
 }

@@ -2,6 +2,9 @@
 
 #include "FieldObject.h"
 
+namespace Seasons
+{
+
 class FieldInt : public FieldObject {
 	virtual int read(Reader&reader, const Field&field) ;
 	virtual int write(Writer&writer, const Field&field);
@@ -66,3 +69,4 @@ class FieldStruct : public FieldObject {
 
 } ;
 
+}

@@ -1,0 +1,66 @@
+PRESET ::= EXPORT identifier,string,number,decimal,hexnumber,float,white,eol,comment,EOS{
+  EOS := '\0';
+  Dot := '.';
+  ANYCHAR := '\*';
+  EolChar := '\n' | EOS;
+  WhiteChar := ' ' | '\t';
+  white := ( WhiteChar )+;
+  eol := '\n'+ ( [ white ] EolChar )*;
+  number := [ decimal | hexnumber | octal | float ];
+  identifier := IdentifierChar identifierAndNumberChar;
+  identifierAndNumberChar := IdentifierChar | numberchar ;
+  IdentifierChar := [ 'A' - 'Z', 'a' - 'z' , '_' , '$' ];
+  string := emptystring | fullstring;
+  emptystring := '\"' '\"';
+  fullstring := '\"' [stringChar | escapeChar '\"']* stringChar '\"';
+  
+  decimal := [sign] decimalnumber;
+  decimalnumber := [ notzero ] [ numberchar ]*;
+  float := [sign] [ postdot | predot ]
+  postdot := [numberchar]* Dot [numberchar]+;
+  predot :=  [ zero | decimalnumber ] Dot [numberchar]* ;
+  numberChar := [ zero | notzero ];
+  zero := '0'; 
+  octal := zero [ octalRange ]+;
+  hexnumber := zero X [ zero | notzero | hexRange ];
+  X := [ 'x' | 'X' ];
+  sign := [ '-' ];
+  stringChar := [ stringCharRange | allowedRange ];
+  stringCharRange := [ '\x0020' - '\x0091','\x0093' - '\x007e' ];
+  anycharWithoutEol := [ ^'\n' ];
+  escapeChar := '\\';
+  allowedRange = [ 
+  octalRange := [ '1' - '7' ] ;
+  hexRange := [ 'A' - 'F' , 'a'-'f' ];
+  notzero := [ octalRange | '8' | '9' ];
+  comment := lineComment | multilineComment ;
+  lineComment := '/' '/' anycharWithoutEol '\n';
+  multilineComment := '/' '*' ANYCHAR* '*' '/';
+  
+} ;
+  
+
+FileDescription ::= FILE lex PRESET {
+
+FILE := WHITE "FILE" white identifier WHITE eol WHITE "BEGINFILE" WHITE eol DEFINITIONS "ENDFILE" ;
+WHITE := white*;
+DEFINITIONS := DEFINITION* ;
+DEFINITION := TYPE_DEFINITION | UNION_DEFINITION | ENDIANESS;
+ENDIANESS := "ENDIAN" white identifier WHITE [ ";" ] eol;
+TYPE_DEFINITION := TYPE_SET WHITE [ ":" TYPE_LINE eol | eol TYPE_BLOCK ] ;
+UNION_DEFINITION := UNION_SET WHITE eol UNION_BLOCK;
+TYPE_LINE := type [ SIZE ] ;
+TYPE_SET := "TYPE" white identifier:+type;
+UNION_SET := "UNION" white identifier:+type;
+UNION_BLOCK := WHITE "BEGIN" WHITE eol [ELEMENT+ [ "NEXT" white "CASE" white CONDITION WHITE eol ELEMENT+| [ "ELSE" WHITE eol ELEMENT+ ]  ]* WHITE "END";
+ELEMENT := [ "UNION" [ identifier ] WHITE eol | UNION_BLOCK | ELEMENT_LINE | STATEMENT ]; 
+TYPE_BLOCK := WHITE "BEGIN" WHITE eol ELEMENT_LINE* WHITE "END";
+ELEMENT_LINE := WHITE TYPE white identifier:+field [ "[" WHITE SIZE  WHITE "]"] ";";
+SIZE := [ number | identifier ];
+TYPE := "BYTE" | "BIT" | "USTRING" | type;
+STATEMENT := "ALIGN" white [ ALIGNMENT ] ;
+ALIGNMENT := number | type;
+CONDITION := identifier COMPARATOR [ number | identifier ];
+COMPARATOR := "==" | "!=" | ">" | "<" | ">=" | "<=";
+
+};

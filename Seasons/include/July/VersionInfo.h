@@ -4,6 +4,9 @@
 #include "October/Data.h"
 #include <vector>
 
+namespace Seasons
+{
+
 class ByteReader;
 
 class ResourceException : public Exception {
@@ -42,3 +45,4 @@ public:
 	void dump() const ;
 };
 
+}

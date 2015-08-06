@@ -1,0 +1,10 @@
+LEX ::= exports chardef,identifier, delimiter, EOS{
+  chardef := '\'' [stringChar | '\\' '\'' ]* stringChar '\'';
+  identifier :=  identifierChar+;
+  stringChar := ^'\\' ;
+  identifierChar := [ upper | lower ];
+  upper := ['A' - 'Z' ];
+  lower := ['a' - 'z'];
+  delimiter := ':' | 
+
+}

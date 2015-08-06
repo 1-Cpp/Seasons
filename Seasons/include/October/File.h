@@ -1,5 +1,9 @@
 #pragma once
 #include "October/String.h"
+
+namespace Seasons
+{
+
 class Data;
 class File
 {
@@ -13,3 +17,4 @@ public:
 	virtual ~File();
 };
 
+}

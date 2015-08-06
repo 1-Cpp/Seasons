@@ -4,6 +4,8 @@
 #include "October/Exception.h"
 #include "October/String.h"
 
+namespace Seasons
+{
 
 int DataLineReader::readLine(String & outLine)
 {
@@ -91,4 +93,6 @@ unsigned int DataLineReader::read(unsigned char buffer[], unsigned long offset, 
 long DataLineReader::align(long boundary)
 {
 	return 0;
+}
+
 }

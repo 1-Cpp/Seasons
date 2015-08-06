@@ -3,6 +3,9 @@
 #include "October/Reader.h"
 #include "October/Writer.h"
 
+namespace Seasons
+{
+
 Field::Field()
 {
 
@@ -21,4 +24,6 @@ int Field::read(Reader & reader, const Field & field)
 int Field::write(Writer & writer,const Field & field)
 {
 	return 0;
+}
+
 }

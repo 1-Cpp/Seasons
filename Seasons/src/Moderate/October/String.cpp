@@ -14,7 +14,7 @@ public:
 	StringImpl(const StringImpl * impl) {
 		theSize = impl->theSize;
 		buffer = new wchar_t[theSize + 1];
-		memcpy(buffer, impl->buffer, theSize<<1 );
+		wmemcpy(buffer, impl->buffer, theSize );
 		buffer[theSize] = 0;
 	}
 	StringImpl(const wchar_t*str) {

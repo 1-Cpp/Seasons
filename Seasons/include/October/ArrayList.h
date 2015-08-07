@@ -1,6 +1,8 @@
 #pragma once
 
 #include "October/Exception.h"
+#include <memory.h>
+
 namespace Seasons
 {
 
@@ -12,6 +14,10 @@ namespace Seasons
 		int sizeChunk = 64;
 	public:
 		int length = 0;
+		virtual ~ArrayList()
+		{
+			delete (unsigned char*)theArray;
+		}
 		void add(TYPE value)
 		{
 			if (sizeAllocated <= length)
@@ -114,11 +120,11 @@ namespace Seasons
 	protected:
 		void reallocateTo(int newSize)
 		{
-			TYPE * newArray = new TYPE[newSize];
+			TYPE * newArray = (TYPE*)new unsigned char[newSize * sizeof(TYPE)];
 			sizeAllocated = newSize;
 			memset(newArray, 0, sizeof(TYPE)*newSize);
 			memcpy(newArray, theArray, length*sizeof(TYPE));
-			delete (void*)theArray;
+			delete (unsigned char *)theArray;
 			theArray = newArray;
 		}
 		void grow()

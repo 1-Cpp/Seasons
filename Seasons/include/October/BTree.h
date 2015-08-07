@@ -460,14 +460,16 @@ namespace Seasons
 		{
 			return root->find(key);
 		}
+		Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> theStack;
 		class iterator
 		{
 		public:
 			BTN*&root;
 			BTN*pBegin = nullptr;
-			Stack<BTree<String, String>::BTN*> arBTN;
+			Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> & stack;
 
-			iterator(BTN*&root) :root(root)
+			iterator(BTN*&root,
+			Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> & stack) :root(root),stack(stack)
 			{
 				
 			}
@@ -478,7 +480,7 @@ namespace Seasons
 				
 				while (pBegin->red)
 				{
-					arBTN.push(pBegin);
+					stack.push(pBegin);
 					pBegin = pBegin->red;
 					
 				}
@@ -501,19 +503,19 @@ namespace Seasons
 			{
 				return pBegin;
 			}
-			iterator operator++()
+			iterator & operator++()
 			{
 				if (pBegin && pBegin->black)
 				{
 					pBegin = pBegin->black;
 					while (pBegin->red)
 					{
-						arBTN.push(pBegin);
+						stack.push(pBegin);
 						pBegin = pBegin->red;
 					}
 				}
-				else if (!arBTN.isEmpty())
-					pBegin = arBTN.pop();
+				else if (!stack.isEmpty())
+					pBegin = stack.pop();
 				else
 					pBegin = nullptr;
 				return *this;
@@ -521,14 +523,14 @@ namespace Seasons
 		};
 		class iterator begin()
 		{
-			iterator it(this->root);
-			it.begin();
-			return it;
+			iterator iter(this->root,this->theStack);
+			iter.begin();
+			return iter ;
 		}
 		class iterator end()
 		{
-			iterator it(root);
-			return it;
+			iterator iter(this->root,this->theStack);
+			return iter ;
 		}
 	};
 

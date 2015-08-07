@@ -7,6 +7,8 @@ namespace Seasons
 
 	template<class TYPE> class Stack : protected ArrayList<TYPE>
 	{
+		int & length = ArrayList<TYPE>::length;
+		TYPE * & theArray = ArrayList<TYPE>::theArray;
 	public:
 		bool isEmpty()
 		{
@@ -26,9 +28,9 @@ namespace Seasons
 		}
 		void push(TYPE value)
 		{
-			if (sizeAllocated <= length)
+			if (ArrayList<TYPE>::sizeAllocated <= length)
 			{
-				reallocateTo(sizeChunk);
+				ArrayList<TYPE>::reallocateTo(ArrayList<TYPE>::sizeChunk);
 			}
 			theArray[length] = value;
 			length++;

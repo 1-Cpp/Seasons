@@ -15,7 +15,7 @@ namespace Seasons
 		void add(TYPE value)
 		{
 			if (sizeAllocated <= length)
-				resizeTo(sizeChunk);
+				reallocateTo(sizeChunk);
 			theArray[length] = value;
 			length++;
 		}
@@ -73,22 +73,22 @@ namespace Seasons
 		}
 		void set(int index, const TYPE&value)
 		{
-			if (i >= 0 && i < length)
-				theArray[i] = value;
+			if (index >= 0 && index < length)
+				theArray[index] = value;
 			else
 				throw OutOfBoundsException();
 		}
 		TYPE & get(int index)
 		{
-			if (i >= 0 && i < length)
-				return theArray[i];
+			if (index >= 0 && index < length)
+				return theArray[index];
 			else
 				throw OutOfBoundsException();
 		}
 		void insert(int index, TYPE value)
 		{
 			reserve(length + 1);
-			for (int i = length, i > index; --i)
+			for (int i = length; i > index; --i)
 			{
 				theArray[i] = theArray[i - 1];
 			}

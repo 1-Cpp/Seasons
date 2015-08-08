@@ -21,14 +21,14 @@ namespace Seasons
 		void add(TYPE value)
 		{
 			if (sizeAllocated <= length)
-				reallocateTo(sizeChunk);
+				reallocateTo(sizeAllocated + sizeChunk);
 			theArray[length] = value;
 			length++;
 		}
 		void add(ArrayList<TYPE> ar)
 		{
 			reserve(length + ar.length);
-			for (int i = length, j = 0; i < length + ar.length; i++, j++)
+			for (int i = length, j = 0; i < length + ar.length && j < ar.length; i++, j++)
 			{
 				theArray[i] = ar.theArray[j];
 			}
@@ -116,6 +116,20 @@ namespace Seasons
 			{
 				reallocateTo(((newSize / sizeChunk) + 1) * sizeChunk);
 			}
+		}
+		void clear()
+		{
+			if(theArray != nullptr)
+				delete (unsigned char*)theArray;
+			theArray = nullptr;
+			length = 0 ;
+			sizeAllocated = 0 ;
+		}
+		ArrayList<TYPE>& operator=(const ArrayList<TYPE>&otherArray)
+		{
+			clear();
+			add(otherArray);
+			return *this;
 		}
 	protected:
 		void reallocateTo(int newSize)

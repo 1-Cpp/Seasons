@@ -441,7 +441,6 @@ namespace Seasons
 			}
 		}
 		
-		BTN * root = nullptr;
 	
 		BTN * insert(const KEY & key, const VALUE &value)
 		{
@@ -460,7 +459,6 @@ namespace Seasons
 		{
 			return root->find(key);
 		}
-		Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> theStack;
 		class iterator
 		{
 		public:
@@ -477,7 +475,7 @@ namespace Seasons
 			{
 				
 				pBegin = root;
-				
+				stack.clear();
 				while (pBegin->red)
 				{
 					stack.push(pBegin);
@@ -532,6 +530,10 @@ namespace Seasons
 			iterator iter(this->root,this->theStack);
 			return iter ;
 		}
+public:
+		BTN * root = nullptr;
+		Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> theStack;
+
 	};
 
 }

@@ -7,35 +7,44 @@ namespace Seasons
 
 	template<class TYPE> class Stack : protected ArrayList<TYPE>
 	{
-		int & length = ArrayList<TYPE>::length;
-		TYPE * & theArray = ArrayList<TYPE>::theArray;
 	public:
 		bool isEmpty()
 		{
-			return length == 0;
+			return ArrayList<TYPE>::isEmpty();
+		}
+		void clear()
+		{
+			ArrayList<TYPE>::clear();
 		}
 		TYPE pop()
 		{
-			if (length == 0)
+			if (ArrayList<TYPE>::length == 0)
 				throw OutOfBoundsException();
-			return theArray[--length];
+			return ArrayList<TYPE>::theArray[--ArrayList<TYPE>::length];
 		}
 		TYPE peek()
 		{
-			if (length == 0)
+			if (ArrayList<TYPE>::length == 0)
 				throw OutOfBoundsException();
-			return theArray(length - 1);
+			return ArrayList<TYPE>::theArray(ArrayList<TYPE>::length - 1);
 		}
 		void push(TYPE value)
 		{
-			if (ArrayList<TYPE>::sizeAllocated <= length)
+			if (ArrayList<TYPE>::sizeAllocated <= ArrayList<TYPE>::length)
 			{
 				ArrayList<TYPE>::reallocateTo(ArrayList<TYPE>::sizeChunk);
 			}
-			theArray[length] = value;
-			length++;
+			ArrayList<TYPE>::theArray[ArrayList<TYPE>::length] = value;
+			ArrayList<TYPE>::length++;
 		}
-
+		ArrayList<TYPE> & getArrayList()
+		{
+			return (ArrayList<TYPE>&)*this;
+		}
+		const ArrayList<TYPE> & getArrayList() const
+		{
+			return (const ArrayList<TYPE>&)*this;
+		}
 	};
 
 }

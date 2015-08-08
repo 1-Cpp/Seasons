@@ -232,14 +232,17 @@ bool String::isEmpty() {
 bool String::operator==(const String&toCompare) const {
 	return theImpl->compare(toCompare.theImpl) == 0;
 }
-bool String::operator<(const String&toCompare) const {
-	return theImpl->compare(toCompare.theImpl) < 0;
+bool String::operator!=(const String&toCompare) const {
+	return theImpl->compare(toCompare.theImpl) != 0;
+}
+int String::compare(const String&toCompare) const {
+	return theImpl->compare(toCompare.theImpl);
 }
 bool operator==(const String & s1, const String& s2) {
 	return s1.operator==(s2);
 }
 bool operator<(const String & s1, const String& s2) {
-	return s1.operator<(s2);
+	return s1.compare(s2) < 0;
 }
 
 }

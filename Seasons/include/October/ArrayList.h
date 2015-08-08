@@ -9,23 +9,25 @@ namespace Seasons
 	template<class TYPE> class ArrayList
 	{
 	protected:
+		void * reserved = nullptr;
 		TYPE * theArray = nullptr;
 		int sizeAllocated = 0;
-		int sizeChunk = 64;
+		int sizeChunk = 2 ;
 	public:
 		int length = 0;
 		virtual ~ArrayList()
 		{
-			delete (unsigned char*)theArray;
+			if(theArray)
+				delete [] theArray;
 		}
-		void add(TYPE value)
+		void add(const TYPE &value)
 		{
 			if (sizeAllocated <= length)
 				reallocateTo(sizeAllocated + sizeChunk);
 			theArray[length] = value;
 			length++;
 		}
-		void add(ArrayList<TYPE> ar)
+		void add(const ArrayList<TYPE>& ar)
 		{
 			reserve(length + ar.length);
 			for (int i = length, j = 0; i < length + ar.length && j < ar.length; i++, j++)
@@ -91,7 +93,7 @@ namespace Seasons
 			else
 				throw OutOfBoundsException();
 		}
-		void insert(int index, TYPE value)
+		void insert(int index, const TYPE& value)
 		{
 			reserve(length + 1);
 			for (int i = length; i > index; --i)
@@ -120,7 +122,7 @@ namespace Seasons
 		void clear()
 		{
 			if(theArray != nullptr)
-				delete (unsigned char*)theArray;
+				delete [] theArray;
 			theArray = nullptr;
 			length = 0 ;
 			sizeAllocated = 0 ;
@@ -131,14 +133,59 @@ namespace Seasons
 			add(otherArray);
 			return *this;
 		}
+		bool operator==(const ArrayList<TYPE>&otherArray)
+		{
+			if (length != otherArray.length)
+				return false;
+			for (int i = 0; i < length; ++i)
+			{
+				if (theArray[i] != otherArray.theArray[i])
+					return false;
+			}
+			return true;
+		}
+		bool operator!=(const ArrayList<TYPE>&otherArray)
+		{
+			if (length != otherArray.length)
+				return true;
+			for (int i = 0; i < length; ++i)
+			{
+				if (theArray[i] != otherArray.theArray[i])
+					return true;
+			}
+			return false;
+		}
+		bool operator <(const ArrayList<TYPE>&otherArray)
+		{
+			int count = min(length, otherArray->length);
+			for (int i = 0; i < count; ++i)
+			{
+				if (theArray[i] < otherArray.theArray[i])
+					return true;
+				if (theArray[i] == otherArray.theArray[i])
+					continue;
+				else
+					return false;
+			}
+			if (count < otherArray.length)
+				return true;
+			return false;
+		}
 	protected:
 		void reallocateTo(int newSize)
 		{
-			TYPE * newArray = (TYPE*)new unsigned char[newSize * sizeof(TYPE)];
+			TYPE * newArray = new TYPE [newSize ];
+			int oldSize = sizeAllocated;
 			sizeAllocated = newSize;
-			memset(newArray, 0, sizeof(TYPE)*newSize);
-			memcpy(newArray, theArray, length*sizeof(TYPE));
-			delete (unsigned char *)theArray;
+			//memset(newArray, 0, sizeof(TYPE)*newSize);
+			if (theArray )
+			{
+				for (int i = 0; i < (oldSize < sizeAllocated?oldSize:sizeAllocated); ++i)
+				{
+					newArray[i] = theArray[i];
+				}
+				delete [] theArray;
+			}
 			theArray = newArray;
 		}
 		void grow()

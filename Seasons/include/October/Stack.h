@@ -32,7 +32,7 @@ namespace Seasons
 		{
 			if (ArrayList<TYPE>::sizeAllocated <= ArrayList<TYPE>::length)
 			{
-				ArrayList<TYPE>::reallocateTo(ArrayList<TYPE>::sizeChunk);
+				ArrayList<TYPE>::reallocateTo(ArrayList<TYPE>::length+1);
 			}
 			ArrayList<TYPE>::theArray[ArrayList<TYPE>::length] = value;
 			ArrayList<TYPE>::length++;

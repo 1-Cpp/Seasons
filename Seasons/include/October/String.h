@@ -38,11 +38,13 @@ namespace Seasons
 		String operator+=(const String&toAdd);
 		String operator+=(const wchar_t&toAdd);
 		bool operator==(const String&toCompare) const;
-		bool operator < (const String&toCompare) const;
+		bool operator!=(const String&toCompare) const;
+		//bool operator < (const String&toCompare) const;
 		bool isEmpty();
+		int compare(const String&other) const;
 	};
 	String operator+(const String & s1, const String& s2);
-//	bool operator<(const String & s1, const String& s2);
+	bool operator<(const String & s1, const String& s2);
 
 	//bool operator==(const String & s1, const String& s2);
 

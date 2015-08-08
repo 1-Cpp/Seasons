@@ -46,21 +46,71 @@ void dump(std::vector<const BTree<String, String>::BTN *>&vec)
 void Dump(BTree<String, String>::BTN*p,int level = 0)
 {
 	if (!p)
+	{
+		for (int i = 0; i < level; ++i)
+			wprintf(L"\t");
+		wprintf(L"(null)\n");
 		return;
+	}
+	Dump(p->black, level + 1);
 	for (int i = 0; i < level; ++i)
 		wprintf(L"\t");
 	wprintf(L"%s\n", (const wchar_t*)p->key);
 	//wprintf(L"\n");
-	Dump(p->black, level + 1);
 	Dump(p->red, level + 1);
 
+}
+void Dump(ArrayList<String>&array)
+{
+	for (int i = 0; i < array.length; ++i)
+	{
+		wprintf(L"<%s>\n", (const wchar_t*)array[i]);
+	}
 }
 class TesterOctober : public Main {
 public:
 	BTree<String, String> varMap;
+
 	std::vector<const BTree<String, String>::BTN *> vec;
 	int run() {
-	// TODO write your code here
+		arraylist();
+		btree();
+		return 0;
+	}
+	void arraylist()
+	{
+		ArrayList<String> array1, array2, array3, array4, array5, * array;
+		array1.add(L"Martin");
+		array1.add(L"Regina");
+		array1.add(L"Johanna");
+		array1.add(L"Joachim");
+		array1.add(L"Reinhard");
+		array1.add(L"Christian");
+		array2.add(L"Roswitha");
+		array2.add(L"Hildegard");
+		array3.add(L"Reinhold");
+		array3.add(L"Anita");
+		array3.add(L"Alfred");
+		array3.add(L"Franz");
+		array3.add(L"Konrad");
+		array3.add(L"Traudl");
+		array4.add(L"Emma");
+		array4.add(L"Peter");
+		array5.add(L"Antonie");
+		array5.add(L"Albert");
+		array = new ArrayList<String>();
+		array->reserve(64);
+		array->add(array1);
+		
+		array->add(array2);
+		array->add(array3);
+		array->add(array4);
+		array->add(array5);
+		Dump(*array);
+		delete array;
+	}
+	void btree()
+	{
 		const BTree<String, String>::BTN *p = nullptr;
 		p = varMap.insert(L"Text", L"Inhalt");
 		vec.push_back(p);
@@ -131,7 +181,7 @@ public:
 			node.dump();
 			wprintf(L"\n");
 		}
-	return 0;
+		return;
 	}
 };
 

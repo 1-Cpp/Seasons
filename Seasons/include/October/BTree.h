@@ -464,10 +464,10 @@ namespace Seasons
 		public:
 			BTN*&root;
 			BTN*pBegin = nullptr;
-			Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> & stack;
+			Stack< BTN*> & stack;
 
 			iterator(BTN*&root,
-			Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> & stack) :root(root),stack(stack)
+			Stack< BTN*> & stack) :root(root),stack(stack)
 			{
 				
 			}
@@ -532,7 +532,7 @@ namespace Seasons
 		}
 public:
 		BTN * root = nullptr;
-		Stack< BTree<KEY, VALUE,COMPARATOR>::BTN*> theStack;
+		Stack< BTN*> theStack;
 
 	};
 

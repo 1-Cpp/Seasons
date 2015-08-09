@@ -11,6 +11,10 @@ namespace Seasons
 	{
 	protected:
 	public:
+		using BaseArrayList<TYPE>::theArray;
+		using BaseArrayList<TYPE>::sizeAllocated;
+		using BaseArrayList<TYPE>::sizeChunk;
+		using BaseArrayList<TYPE>::length;
 		virtual ~ArrayList()
 		{
 
@@ -18,7 +22,7 @@ namespace Seasons
 		void add(const TYPE &value)
 		{
 			if (sizeAllocated <= length)
-				reallocateTo(sizeAllocated + sizeChunk);
+				BaseArrayList<TYPE>::reallocateTo(sizeAllocated + sizeChunk);
 			theArray[length] = value;
 			length++;
 		}
@@ -49,7 +53,7 @@ namespace Seasons
 		}
 		ArrayList<TYPE>& operator=(const BaseArrayList<TYPE>&otherArray)
 		{
-			clear();
+			BaseArrayList<TYPE>::clear();
 			add(otherArray);
 			return *this;
 		}

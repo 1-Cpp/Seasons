@@ -26,13 +26,13 @@ namespace Seasons
 		{
 			if (ArrayList<TYPE>::length == 0)
 				throw OutOfBoundsException();
-			return ArrayList<TYPE>::theArray(ArrayList<TYPE>::length - 1);
+			return ArrayList<TYPE>::theArray[ArrayList<TYPE>::length - 1];
 		}
-		void push(TYPE value)
+		void push(const TYPE &value)
 		{
 			if (ArrayList<TYPE>::sizeAllocated <= ArrayList<TYPE>::length)
 			{
-				ArrayList<TYPE>::reallocateTo(ArrayList<TYPE>::length+1);
+				ArrayList<TYPE>::reserve(ArrayList<TYPE>::length+1);
 			}
 			ArrayList<TYPE>::theArray[ArrayList<TYPE>::length] = value;
 			ArrayList<TYPE>::length++;

@@ -1,19 +1,13 @@
 #pragma once
 #include "October/String.h"
 #include "October/Stack.h"
+#include "October/Algorithms.h"
+
 namespace Seasons
 {
 	class InternalException
 	{
 
-	};
-	template<typename KEY> class less
-	{
-	public:
-		bool operator()(const KEY& keyLeft, const KEY & keyRight)
-		{
-			return keyLeft < keyRight;
-		}
 	};
 	template <typename KEY, typename VALUE,typename COMPARATOR=less<KEY>> class BTree
 	{

@@ -238,7 +238,9 @@
     <ClCompile Include="October.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\include\October\Algorithms.h" />
     <ClInclude Include="..\..\include\October\ArrayList.h" />
+    <ClInclude Include="..\..\include\October\BaseArrayList.h" />
     <ClInclude Include="..\..\include\October\BTree.h" />
     <ClInclude Include="..\..\include\October\ByteReader.h" />
     <ClInclude Include="..\..\include\October\ByteWriter.h" />
@@ -253,6 +255,7 @@
     <ClInclude Include="..\..\include\October\File.h" />
     <ClInclude Include="..\..\include\October\LineReader.h" />
     <ClInclude Include="..\..\include\October\Reader.h" />
+    <ClInclude Include="..\..\include\October\SortedArrayList.h" />
     <ClInclude Include="..\..\include\October\Stack.h" />
     <ClInclude Include="..\..\include\October\String.h" />
     <ClInclude Include="..\..\include\October\StringReader.h" />

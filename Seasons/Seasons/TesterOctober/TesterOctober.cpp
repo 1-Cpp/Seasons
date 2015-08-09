@@ -13,6 +13,11 @@
 #include "October/BTree.h"
 #include "October/String.h"
 #include "October/ArrayList.h"
+
+namespace Seasons
+{
+	extern wchar_t * pszOctober;
+}
 #define M(x) L##x
 #define X(x) L#x
 
@@ -187,7 +192,7 @@ public:
 
 int wmain(int argc, wchar_t ** argv) {
 	TesterOctober program;
-  
+	wprintf(L"%s", pszOctober);
 	if(program.evalArgs(argc,argv) ) {
 		return program.run();
 	}

@@ -230,6 +230,7 @@
     <ClCompile Include="..\..\src\Moderate\October\DataLineReader.cpp" />
     <ClCompile Include="..\..\src\Moderate\October\DataReader.cpp" />
     <ClCompile Include="..\..\src\Moderate\October\DataWriter.cpp" />
+    <ClCompile Include="..\..\src\Moderate\October\Debug.cpp" />
     <ClCompile Include="..\..\src\Moderate\October\File.cpp" />
     <ClCompile Include="..\..\src\Moderate\October\String.cpp" />
     <ClCompile Include="..\..\src\Moderate\October\StringReader.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="..\..\include\October\DataLineReader.h" />
     <ClInclude Include="..\..\include\October\DataReader.h" />
     <ClInclude Include="..\..\include\October\DataWriter.h" />
+    <ClInclude Include="..\..\include\October\Debug.h" />
     <ClInclude Include="..\..\include\October\Exception.h" />
     <ClInclude Include="..\..\include\October\File.h" />
     <ClInclude Include="..\..\include\October\LineReader.h" />

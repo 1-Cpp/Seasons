@@ -48,6 +48,9 @@
     <ClCompile Include="..\..\src\Moderate\October\StringWriter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Moderate\October\Debug.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="October.h">
@@ -108,6 +111,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\October\Stack.h">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\October\Debug.h">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
